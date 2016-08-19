@@ -13,28 +13,42 @@
 </style>
 
 <style type="text/css">
-    .standardCSS{
-        color:#505050;
-        font-size:15px;
+    .graphic{
+        width: 560px; 
+		background-image: url(https://shielded-tor-97840.herokuapp.com/boys-bg-image.png); 
+		background-repeat:no-repeat;  
+		display: block; 
+		margin: 0px 0px 0px 0px; 
+    	padding: 30px 20px 20px 240px; 
+		font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; 
+		font-size: 12px; 
+		font-style: normal; 
+    	font-weight:300; 
+		color: #FFFFFF; 
+		text-align: left; 
+		letter-spacing: .05em;
     }
 
     @media only screen and (max-width:480px){
-        .mediaQueryCSS{
-            color:#CCCCCC !important;
-            font-size:20px !important;
+        .graphic{
+        width: 100%; 
+		background-image: none; 
+		background-color: #00539E;
+		display: block; 
+		margin: 0px 0px 0px 0px; 
+    	padding: 20px 20px 20px 20px; 
+		font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; 
+		font-size: 12px; 
+		font-style: normal; 
+    	font-weight:300; 
+		color: #FFFFFF; 
+		text-align: left; 
+		letter-spacing: .05em;
         }
     }
 </style>
 
-<style type="text/css">
-    @media only screen and (max-width: 480px){
-        .emailImage{
-            height:auto !important;
-            max-width:600px !important;
-            width: 100% !important;
-        }
-    }
-</style>
+
 </head>
 
 <body style="margin:0px; background-color: #4B2332">
@@ -90,10 +104,9 @@
     </tr>
     </table>
 
+<div style="width: 100%; padding: 0 20px 0 20px;">
     <!-- Start Description Graphic-->
-<div style="width: 560px; background-image: url(https://shielded-tor-97840.herokuapp.com/boys-bg-image.png); background-repeat:no-repeat;  display: block; margin: 0px 20px 0px 20px; 
-    padding: 30px 20px 20px 240px; font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; 
-    font-weight:300; color: #FFFFFF; text-align: left; letter-spacing: .05em;">
+	<div class="graphic">
         <strong>Communities in Scools of Central Texas</strong> works with more than 50,000 individuals each year. Our dedicated staff are on 
         63 elementary, middle and high school campuses working full-time:
         <ul style="margin: 5px 0px 0px 0px;">
@@ -102,6 +115,7 @@
         <li>and counseling students and their families</li>
         </ul>
     </div>
+</div>
     
     <!-- Start second headline Text-->
     
