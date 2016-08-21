@@ -64,7 +64,7 @@ a:hover {
 	margin-left: auto;
 	margin-right: auto;
 	height: 100%;
-	margin-top: 10px;
+	margin-top: 0px;
 }
 
 #main-content {
@@ -72,7 +72,7 @@ a:hover {
 	padding: 5px;
 	text-align: left;
 	vertical-align: middle;
-	background: #d83563;
+	background: #b72a76;
 	margin-bottom: 10px;
 }
 
@@ -151,6 +151,44 @@ a:hover {
 	background-color: rgba(0,0,0,0.1);
 }
 
+.category-title-intro {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+	padding: 0px 0px 100px 0px;
+	text-align; center;
+	vertical-align: top;
+}
+
+#main-content h1.category-title-intro-text {
+	color: white;
+	font-size: 48px;
+	font-family: 'Arvo', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding: 0px 0px 10px 0px;
+	text-align: center;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+#main-content h2.category-title-intro-text {
+	color: white;
+	font-size: 24px;
+	font-family: 'Arvo', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding: 0px;
+	text-align: center;
+
+	
+}
+
 .category-board {
 	display: table-cell;
 	margin: 0px;
@@ -220,6 +258,12 @@ h3.category-name {
 
 .category-icon {
 	height: 100px;
+
+}
+
+.category-icon-div {
+	text-align: center;
+	padding-top: 50px;
 
 }
 
