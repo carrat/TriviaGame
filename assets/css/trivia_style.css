@@ -74,6 +74,7 @@ a:hover {
 	vertical-align: middle;
 	background: #b72a76;
 	margin-bottom: 10px;
+	margin-top: 30px;
 }
 
 #main-content-inner { 
@@ -104,6 +105,22 @@ a:hover {
 	margin-bottom: 20px;
 	padding: 0px;
 
+}
+
+#main-content h2.result-update {
+	color: white;
+	font-size: 20px;
+	font-family: 'Arvo', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+
+}
+
+.badge-earned {
+	text-align: center;
 }
 
 #scoreboard {
@@ -157,9 +174,22 @@ a:hover {
 	margin-right: auto;
 	width: 100%;
 	height: 100%;
-	padding: 0px 0px 100px 0px;
+	padding: 0px 0px 20px 0px;
 	text-align; center;
 	vertical-align: top;
+}
+
+#main-content h1.welcome {
+	color: white;
+	font-size: 48px;
+	font-family: 'Arvo', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding: 20px 0px 10px 0px;
+	text-align: center;
+	border-bottom: 1px solid #FFFFFF;
 }
 
 #main-content h1.category-title-intro-text {
@@ -170,9 +200,22 @@ a:hover {
 	font-weight: 300;
 	margin-top: 0px;
 	margin-bottom: 10px;
-	padding: 0px 0px 10px 0px;
+	padding: 20px 0px 10px 0px;
 	text-align: center;
 	border-bottom: 1px solid #FFFFFF;
+}
+
+#main-content h1.score{
+	color: white;
+	font-size: 36px;
+	font-family: 'Arvo', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 30px 0px 0px 0px;
+	text-align: center;
+	opacity: .7;
 }
 
 #main-content h2.category-title-intro-text {
@@ -183,7 +226,7 @@ a:hover {
 	font-weight: 300;
 	margin-top: 0px;
 	margin-bottom: 10px;
-	padding: 0px;
+	padding: 0px 0px 50px 0px;
 	text-align: center;
 
 	
@@ -265,6 +308,12 @@ h3.category-name {
 	text-align: center;
 	padding-top: 50px;
 
+}
+
+.category-results-div {
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 50px;
 }
 
 .faded {
@@ -388,6 +437,17 @@ h3.category-label {
 
 }
 
+.badges-earned-holder {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+img.earned-badge {
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 60px;
+}
+
 .answer {
 	width: 300px;
 	background-color: rgba(255,255,255,0.2);
@@ -417,7 +477,7 @@ button.answer:active {
 
 }
 
-button.start-game {
+button.gameplay {
 	font-family: 'Asap', Arial, sans-serif;
 	background-color: rgba(255,255,255,0.2);
 	color: #FFFFFF;
@@ -429,13 +489,13 @@ button.start-game {
 	border: 0px;
 }
 
-button.start-game:hover {
+button.gameplay:hover {
 	background-color: rgba(0,0,0,0.2);
 	color: #FFFFFF;
 
 }
 
-button.start-game:active {
+button.gameplay:active {
 	background-color: rgba(0,0,0,0.4);
 	color: #FFFFFF;
 	border: 1px solid #ffffff;

@@ -1,218 +1,1156 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Communities in Schools of Central Texas</title>
+    <meta charset="UTF-8">
+    <title>Do-ya-know? - trivial matters</title>
+    
+    <link href="assets/css/trivia_style.css" rel="stylesheet" type="text/css"><!-- Add unique stylesheet -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"><!-- Add Font Awesome -->
+    <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i|Asap:400,400i,700,700i|Bitter:400,400i,700|Droid+Sans:400,700|Droid+Serif:400,400i,700,700i|Roboto+Slab:100,300,400,700" rel="stylesheet"><!-- Add Google Web Font -->
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-
-</style>
-
-<style type="text/css">
-    .graphic{
-        width: 560px; 
-		background-image: url(https://shielded-tor-97840.herokuapp.com/boys-bg-image.png); 
-		background-repeat:no-repeat;  
-		display: block; 
-		margin: 0px 0px 0px 0px; 
-    	padding: 30px 20px 20px 240px; 
-		font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; 
-		font-size: 12px; 
-		font-style: normal; 
-    	font-weight:300; 
-		color: #FFFFFF; 
-		text-align: left; 
-		letter-spacing: .05em;
-		
-    }
-
-	.graphic-alt {
-			width: 100%;
-			display: none;
-			text-align: center;
-			padding: 0px;
-			margin: 0px;
-			
-		}
-    @media only screen and (max-width:480px){
-        .graphic{
-        width: 100%; 
-		background-image: none; 
-		background-color: #00539E;
-		display: block; 
-		margin: 0px 0px 0px 0px; 
-    	padding: 20px 20px 20px 20px; 
-		font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; 
-		font-size: 12px; 
-		font-style: normal; 
-    	font-weight:300; 
-		color: #FFFFFF; 
-		text-align: left; 
-		letter-spacing: .05em;
-        }
-		
-		.graphic-alt {
-			width: 100%;
-			display: block;
-			text-align: left;
-			padding: 0px 0px 0px 20px;
-			margin: 0px 0px -5px 0px;
-			vertical-align: bottom;
-		}
-    }
-</style>
-
+    <script 
+    src="https://code.jquery.com/jquery-3.1.0.js"   
+    integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   
+    crossorigin="anonymous">    
+    </script>
 
 </head>
 
-<body style="margin:0px; background-color: #4B2332">
+<body>
 
-
-<!-- Start Container -->
-<div style="max-width:600px; text-align:center; padding: 0px; margin:10px auto 0px auto; background-color: #FFFFFF; vertical-align: top;">
-    <!-- Start Header-->
-    <table width="100%" cellpadding="15">
-    <tr>
-     <!-- Start Logo Block-->
-    <td>
-        <div style="padding; 0px; text-align: left; ">
-        <a href="http://www.ciscentraltexas.org"><img src="https://shielded-tor-97840.herokuapp.com/cis-logo.png" alt="Communities in Schools" width="200px"></a>
-        </div>
-    </td>
-    <!-- Start Donate Now Block -->
-    <td align="right" valign="bottom">
-        <a href="http://www.ciscentraltexas.org/get-involved/donate-online/make-a-back-to-school-donation/" style="text-decoration: none; color: #FFFFFF;">
-        <div style=" background-color: #f68e1e; padding: 7px 10px 7px 10px; font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; width: 130px;">
-        DONATE NOW
-        </div>
-        </a>
-    </td>
-    </tr>
-    </table>
-        
-<!-- Start Main Graphic-->
-
-	<table width="100%" cellpadding="15">
-    <tr>
-    <td>
-    	<img src="https://shielded-tor-97840.herokuapp.com/backpack-girl.png" alt="Hungry. Tired. Scared. Alone." width="100%">
-    </td>
-    </tr>
-    </table>
-
-<!-- Start headline Text-->
-	
-    <table width="100%" cellpadding="5">
-    <tr>
-    <td>
-        <h1 style="font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; 
-            font-style: normal; font-weight:300; color: #666666; margin: 0px 0px 0px 0px; padding: 0px;">
-        Sometimes a student is carrying much more than their backpack.
-        </h1>
-        
-        <h2  style="font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 22px; 
-            font-style: normal; font-weight:600; color: #F68E1E; margin: 5px 0px 0px 0px; padding: 0px;">
-        Help lighten their load.
-        </h2>
-    </td>
-    </tr>
-    </table>
-    
-    <div class="graphic-alt"><img src="boys-bg-image-2.png" height="150px"></div>
-
-<div style="width: 100%; padding: 0 20px 0 20px;">
-    <!-- Start Description Graphic-->
-	<div class="graphic">
-        <strong>Communities in Scools of Central Texas</strong> works with more than 50,000 individuals each year. Our dedicated staff are on 
-        63 elementary, middle and high school campuses working full-time:
-        <ul style="margin: 5px 0px 0px 0px;">
-        <li>keeping kids in school</li>
-        <li>providing academic support</li>
-        <li>and counseling students and their families</li>
-        </ul>
+<div id="header">
+    <div id="header-inner">
+        <div id="logo"><img src="assets/images/do-ya-know-logo-color.png" width="250px"></div>
+        <div id="buttons"></div>
     </div>
 </div>
-    
-    <!-- Start second headline Text-->
-    
-    <table width="100%" cellpadding="5">
-    <tr>
-    <td>
-    	<h1 style="font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; font-style: normal; font-weight:300; 
-        color: #666666; margin: 10px 0px 0px 0px; padding: 0px;">
-        And with this kind of support, 99% of our students stay in school! <br>
-        Your back-to-school gift can lighten the load for a child in need.
-        </h1>
-        
-        <h2  style="font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 22px; font-style: normal; font-weight:600; 
-        color: #F68E1E; margin: 5px 0px 0px 0px; padding: 0px;">
-        Please donate today!
-        </h2>
-    
-        <!-- Start Donate Now Button -->
-        <div style="padding: 0px;  margin: 0px 0px 0px 0px; width: 100%; text-align: center">
-            <a href="http://www.ciscentraltexas.org/get-involved/donate-online/make-a-back-to-school-donation/" style="text-decoration: none; color: #FFFFFF;">
-            <div style=" background-color: #f68e1e; padding: 7px 10px 7px 10px; font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; 
-            font-size: 18px; width: 160px; margin: 10px auto 0px auto">
-            DONATE NOW
-            </div>
-            </a>
-        </div>
-    </td>
-    </tr>
-    </table>
 
-    <!-- Start footer -->
-    <table width="100%" cellpadding="20">
-        
-   <tr>
-   <td align="left" valign="top"> 
-   <!-- Start social media block -->
- 
-            <h5 style="font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; font-weight:600; 
-            color: #bbbbbb; margin: 10px 0px 10px 0px; padding: 0px;">
-            CONNECT WITH US
-            </h5>
-            
-            <!-- Facebook -->
-        	<div style="display: inline-block; margin: 0px 5px 0px 0px">
-               <a href="https://www.facebook.com/CommunitiesInSchoolsofCentralTexas"><img src="https://shielded-tor-97840.herokuapp.com/fb.png" alt="Follow us on Facebook" height="30"></a>
+<div id="container">
+    <div id="main-content">
+        <div id="scoreboard"></div>
+        <div id="main-content-inner">
+            <div id="intro">
+            <h1 class="welcome">Welcome to Do-ya-know!</h1>
+            <h2>Let’s find out how much useless information <br>
+            you have stuffed in your head.
+            </h2>
+            <button class='start-game gameplay'>Play Game</button>
             </div>
-            <!-- Twitter -->
-            <div  style="display: inline-block;">
-               <a href="https://twitter.com/ciscentraltx"><img src="https://shielded-tor-97840.herokuapp.com/twitter.png" alt="Follow us on Twitter" height="30"></a>
-            </div>
-         
-   </td>
-   
-   <td align="right">  <!-- Start CIS identifer footer -->
-                
-          <table>
-          <tr>
-          <td align="right">
-                    <a href="http://www.ciscentraltexas.org">
-                    <img src="https://shielded-tor-97840.herokuapp.com/cis-logo-gray.png" alt="Communities in Schools of Central texas" height="50">
-                    </a>
-                    
-                    
-                    <a href="http://www.ciscentraltexas.org" style="text-decoration:none;">
-                    <h6 style="font-family: Gotham, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 12px; 
-                            font-style: normal; font-weight:600; color: #bbbbbb; margin: 0px 0px 0px 0px; padding: 0px;">
-                    ciscentraltexas.org
-                    </h6>
-                    </a>
-          </td>
-          </tr>
-          </table>
-   </td>
-   </tr>
-   </table>
-    
-  
+        </div>        
+    </div>
 </div>
+
+<div id="footer">
+    <div id="footer-inner">
+    <p>&copy; 2016  <strong><a href="https://www.linkedin.com/in/ideabrothers">Andrew Carr</a></strong> | 
+    Demo project for <a href="https://www.codingbootcamputaustin.com/">The Coding Boot Camp</a>  at UT Austin Center for Professional Education
+    </p>
+    </div>
+</div>
+
+<script>
+// If page is ready
+$(document).ready(function(){
+
+    // Set initial variables
+    var categoriesChosen = []; //array to hold the three categories chosen by the user for gameplay
+    var categorySelected; // Holds the category selected by user input
+    var activeRound = 0; // Holds the active round during gameplay so we know what category we are in
+    var activeCategory = 0; // Hold the active category for the round
+    var categoryCounter = 0;
+    var activeQuestion = 0;
+    var gameScore = 0;
+    var roundScore = 0;
+    var questionPoints = 100;
+    var questionTime = 10;
+    var questionNumber = 0;
+    var roundCorrect = 0;
+    var roundIncorrect = 0;
+    var gameCorrect = 0;
+    var gameIncorrect = 0;
+    var gameRecord = []; // Array of objects that will include category played and round score ofr that category
+    var gradeText;
+    var chosenAnswer;
+    var chosenAnswerGrade;
+    var correctAnswer;
+    var questionPointsEarned;
+    var correctAudio = new Audio('assets/sounds/correct.mp3');
+    var incorrectAudio = new Audio('assets/sounds/incorrect.mp3');
+    var oopsAudio = new Audio('assets/sounds/oops.mp3');
+    var gameOverAudio = new Audio('assets/sounds/gameOver.mp3');
+    var totalQuestions = 0;
+    var badgesEarned = [];
+
+// Array containing category objects which hold questions and answers
+    var categories = [
+        {name: "Movies", // Name of category
+        icon: "movies.png", // name of icon file
+        active: false, // has the user chosen this category for gameplay?
+        badge: false, // has the user won the badge in this category?
+        color: "#98288b",
+        questions: [ 
+
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: true
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: true
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: true
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            }
+            ]
+
+        },
+        {name: "Sports",
+        icon: "sports.png",
+        active: false,
+        badge: false,
+        color: "#c8431e",
+        questions: [ 
+
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: true
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: true
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: true
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            }
+            ]
+
+        },
+        {name: "Art",
+        icon: "art.png",
+        active: false,
+        badge: false,
+        color: "#ce2630",
+        questions: [ 
+
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: true
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: true
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: true
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            }
+            ]
+
+        },
+        {name: "Television",
+        icon: "tv.png",
+        active: false,
+        badge: false,
+        color: "#4862d6",
+        questions: [ 
+
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: true
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: true
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: true
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            }
+            ]
+
+        },
+        {name: "Geography",
+        icon: "geography.png",
+        active: false,
+        badge: false,
+        color: "#f58b25",
+        questions: [ 
+
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: true
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: true
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: true
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            }
+            ]
+
+        },
+        {name: "Science",
+        icon: "science.png",
+        active: false,
+        badge: false,
+        color: "#428546",
+        questions: [ 
+
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: true
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: true
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: false
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            },
+            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
+             answers: [ 
+                      {
+                        answer: 'Teddy Roosevelt',
+                        correct: false
+                      },
+                      {
+                        answer: 'Bob Dole',
+                        correct: false
+                      },
+                      {
+                        answer: 'Roger Staubach',
+                        correct: true
+                      },
+                      {
+                        answer: 'F. Scott Fitzgerald',
+                        correct: false
+                      }
+                      ]
+            }
+            ]
+
+        }
+    ]
+
+ // Event Handlers
+    
+    $('.start-game').on('click', startGame); // Begin game by switching to categories page
+
+// Functions
+    
+// Start Game
+    function startGame() {
+    // Output instructions
+        $('#main-content h1').css({'margin-top': '0px'});
+        $('#main-content-inner').html("<h1>Choose three categories.</h1><h2>Answer the questions in each category. Score high enough in each category to win a badge.</h2>");
+
+         $('.category').on('click', chooseCategory); // select a category
+    // load categories
+        loadCategories();
+    }
+
+// Reset Game 
+    function resetGame() {
+    // Stop Timers
+        stopPoints();
+        stopTimer();
+
+     // Reset variables
+        categoriesChosen = []; //array to hold the three categories chosen by the user for gameplay
+        categorySelected = 0; // Holds the category selected by user input
+        activeRound = 0; // Holds the active round during gameplay so we know what category we are in
+        activeCategory = 0; // Hold the active category for the round
+        categoryCounter = 0;
+        activeQuestion = 0;
+        gameScore = 0;
+        roundScore = 0;
+        questionPoints = 100;
+        questionTime = 10;
+        questionNumber = 0;
+        roundCorrect = 0;
+        roundIncorrect = 0;
+        gameCorrect = 0;
+        gameIncorrect = 0;
+        gameRecord = []; // Array of objects that will include category played and round score ofr that category
+        gradeText ='';
+        chosenAnswer = 0;
+        chosenAnswerGrade = 0;
+        correctAnswer = 0;
+        questionPointsEarned = 0;
+        questionPoints = 100;
+        questionTime = 10;
+        totalQuestions = 0;
+    //Clear running timeouts
+        clearTimeout(delayTen);
+        clearTimeout(delayThree);
+    // Clear gameboard
+        $('#main-content').empty();
+        $('#main-content').css({'background': '#b72a76'}); // return color to base
+       // $('html').css({'background-color': '#b72a76'}); // return color to base
+
+    // First clear out the scoreboard holder just in case
+        scoreboardDiv = document.createElement("div");
+        $(scoreboardDiv).attr("id", "scoreboard");
+        $('#main-content').html(scoreboardDiv);
+    // Rebuild game board
+        mainContentInner = document.createElement('div');
+        $(mainContentInner).attr("id", "main-content-inner");
+        $('#main-content').append(mainContentInner);
+        introDiv = document.createElement("div");
+        $(introDiv).attr("id", "intro");
+        welcomeTitle = document.createElement('h1');
+        $(welcomeTitle).attr("class", "welcome")
+        $(welcomeTitle).text("Welcome to Do-ya-know!");
+        introP = document.createElement("h2");
+        $(introP).html("Let’s find out how much useless information <br> you have stuffed in your head.");
+        startGameButton = document.createElement("button");
+        $(startGameButton).attr("class", "start-game gameplay");
+        $(startGameButton).text("Play Game");
+
+        $(introDiv).append(welcomeTitle);
+        $(introDiv).append(introP);
+        $(introDiv).append(startGameButton);
+
+        $('#main-content-inner').html(introDiv);
+
+         $('.start-game').on('click', startGame); // Begin game by switching to categories page
+    }
+
+// Give up and go to end of game
+    function surrenderGame() {
+        //Clear running timeouts
+        clearTimeout(delayTen);
+        clearTimeout(delayThree);
+
+        loadGameResults();
+
+
+    }
+
+// Load Categories
+    function loadCategories() {
+    // Output categories holde on game board
+       categoriesDiv = document.createElement('div');
+       $(categoriesDiv).attr('id', 'categories-holder');
+    // Loop through categories, outputting the name and icon of each as a button 
+        for (i=0; i < categories.length; i++) {
+        // Make a holder for category button
+            newCatDiv = document.createElement('div');
+            // Render category button holder
+            $(newCatDiv).addClass('category category-button');
+            $(newCatDiv).attr('id', i);
+            // place category image in holder
+            newCatImg = document.createElement('IMG');
+            $(newCatImg).addClass('category-icon');
+            $(newCatImg).attr('src', 'assets/images/icons/' + categories[i].icon);
+            // Create category label
+            newCatLabel = document.createElement('H3');
+            $(newCatLabel). attr('class', 'category-label');
+            $(newCatLabel).text(categories[i].name);
+            // Output icon and label
+            $(newCatDiv).append(newCatImg);
+            $(newCatDiv).append(newCatLabel);
+            $(categoriesDiv).append(newCatDiv);
+        }
+    // Throw buttons on to game board
+        $('#main-content-inner').append(categoriesDiv);
+    // Create category click handler
+        $('.category').on('click', chooseCategory); // select a category
+    }
+
+// Choose Category
+    function chooseCategory() {
+    // if they have not yet selected three categories, select that category clicked on 
+        if (categoriesChosen.length <3) {
+        // which category did they select?
+            categorySelected = $(this).attr('id');
+        // If category has not been chosen yet, select it
+            if ($.inArray(categorySelected, categoriesChosen) < 0) {
+                $('#' + categorySelected).animate({opacity: 0.40}, "fast"); // Fade button
+                categoriesChosen.push(categorySelected); // Add to chosen array
+            // if all three categories have been selected, start the game
+                if (categoriesChosen.length == 3) {
+                    loadCategoryIntro();
+                }
+            }
+        // If category has been chosen, but is selected again, unchoose it
+            else {
+                $('#' + categorySelected).animate({opacity: 1.0}, "fast"); // Fade button
+                index = $.inArray(categorySelected, categoriesChosen);
+                if (index > -1) {
+                    categoriesChosen.splice(index, 1);
+                }
+            }
+        }      
+    }
+
+// Create and Load Top Nav Buttons
+    function loadNavButtons() {
+    // Build the buttons
+        startOverButton = document.createElement('button');
+        $(startOverButton).attr("class", "start-over nav-button");
+        $(startOverButton).text("Start Over");
+        surrenderButton = document.createElement('button');
+        $(surrenderButton).attr("class", "surrender-button nav-button");
+        $(surrenderButton).text("Surrender");
+    // Throw them on the board-title
+        $('#buttons').append(startOverButton);
+        $('#buttons').append(surrenderButton);
+
+        $('.start-over').on('click', resetGame); // Reset Game to start over from the beginning
+        $('.surrender-button').on('click', surrenderGame); // Reset Game to start over from the beginning
+    }
+    
+// Create and Load scoreboard
+    function loadScoreboard() {
+        // First clear out eh scoreboard holder just in case
+            scoreboardDiv = document.createElement("div");
+            $(scoreboardDiv).attr("id", "scoreboard");
+            $('#main-content').html(scoreboardDiv);
+        // Rebuild game board
+            mainContentInner = document.createElement('div');
+            $(mainContentInner).attr("id", "main-content-inner");
+            $('#main-content').append(mainContentInner);
+        // Build the Question Points feature
+            pointsDiv = document.createElement('div');
+            $(pointsDiv).attr("class", "points-board");
+            $(pointsDiv).html("<h3 class='board-title'>Question Points</h3>");
+            pointsNumber = document.createElement('h4');
+            $(pointsNumber).attr("class", "board-title-2 points-countdown");
+            $(pointsNumber).text(questionPoints);
+            $(pointsDiv).append(pointsNumber);
+        // Build the Questiin Timer feature
+            timeDiv = document.createElement('div');
+            $(timeDiv).attr("class", "time-board");
+            $(timeDiv).html("<h3 class='board-title'>Time Remaining</h3>");
+            timeNumber = document.createElement('h4');
+            $(timeNumber).attr("class", "board-title-2 timer-countdown");
+            $(timeNumber).text(questionTime);
+            $(timeDiv).append(timeNumber);
+        // Build the Round Score feature
+            scoreDiv = document.createElement('div');
+            $(scoreDiv).attr("class", "game-score-board");
+            $(scoreDiv).html("<h3 class='board-title'>Round Score</h3>");
+            scoreNumber = document.createElement('h4');
+            $(scoreNumber).attr("class", "board-title-2 round-score");
+            $(scoreNumber).text(roundScore);
+            $(scoreDiv).append(scoreNumber);
+        // Build the Category name feature
+            categoryDiv = document.createElement('div');
+            $(categoryDiv).attr("class", "category-board");
+            categoryName = document.createElement('h3');
+            $(categoryName).attr("class", "category-name");
+            $(categoryName).text(categories[activeCategory].name);
+            $(categoryDiv).append(categoryName);
+        // Throw them on the board
+            $('#scoreboard').append(pointsDiv);
+            $('#scoreboard').append(timeDiv);
+            $('#scoreboard').append(scoreDiv);
+            $('#scoreboard').append(categoryDiv);
+    }
+
+// Load category intro
+    function loadCategoryIntro() {
+
+        $('#main-content').empty(); // Empty Game Board
+    // Rebuild game board
+        mainContentInner = document.createElement('div');
+        $(mainContentInner).attr("id", "main-content-inner");
+        $('#main-content').html(mainContentInner);
+
+    // Set the category
+        activeCategory = categoriesChosen[categoryCounter]; // assign the active category
+        $('#main-content').css({'background': categories[activeCategory].color}); // change color to match category
+    // Write Category Title 
+        categoryTitleDiv = document.createElement("div");
+        $(categoryTitleDiv).attr("class", "category-title-intro");
+        $(categoryTitleDiv).html("<h1 class='category-title-intro-text'>" + categories[activeCategory].name + "</h1><h2 class='category-title-intro-text'>Get ready...</h2>");
+        categoryIconDiv = document.createElement("div");
+        $(categoryIconDiv).attr("class", "category-icon-div");
+        $(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='100px'>");
+        $('#main-content-inner').html(categoryIconDiv);
+        $('#main-content-inner').append(categoryTitleDiv);
+    // Delay and then load the category data
+       delayThree = setTimeout(loadGameCategory, 3000);
+    }
+
+// Load category and start question and answer
+    function loadGameCategory() {
+    // reset some variables for new round
+        questionNumber = 0;
+        roundScore = 0;
+        roundCorrect = 0;
+        roundIncorrect = 0;
+    // load the nav buttons in header
+        $('#buttons').empty();
+        loadNavButtons(); 
+    // Set the category
+        activeCategory = categoriesChosen[categoryCounter]; // assign the active category
+        $('#main-content-inner').empty(); // Empty Game Board
+        $('#main-content').css({'background': categories[activeCategory].color}); // change color to match category
+    // Advance Game
+        loadScoreboard(); // Load the scoreboard in preparation for the round
+        loadQuestion(questionNumber); // Load the first question
+    }
+
+// Load question
+    function loadQuestion(number) {
+     // Create and output holder
+        questionDiv = document.createElement('div');
+        $(questionDiv).attr("class", "question-holder");
+        questionText = document.createElement('div');
+        $(questionText).attr("class", "question-text");
+        dyk = document.createElement('span');
+        $(dyk).attr("class", "dyk");
+        $(dyk).text("Do-ya-know ");
+    // Create holder for when answers load
+        answerDiv = document.createElement('div');
+        $(answerDiv).attr("class", "answer-holder");
+    // make sure gameboard is cleared of previous question
+        $('#main-content-inner').empty();
+    // Create and output question counter
+        questionCheckDiv = document.createElement('div');
+        $(questionCheckDiv).attr("class", "question-check-holder");
+        currentQuestion = questionNumber + 1;
+        $(questionCheckDiv).html("Question " +  currentQuestion + " of " + categories[activeCategory].questions.length);
+        $('#main-content-inner').html(questionCheckDiv);
+     // Get question and output to game board
+        $(questionText).text(categories[activeCategory].questions[questionNumber].question);
+        $(questionDiv).html(dyk);
+        $(questionDiv).append(questionText);
+        $('#main-content-inner').append(questionDiv);
+    // tack on the answer holder so it sits below question
+        $('#main-content-inner').append(answerDiv);
+    // Create holder and title for round history
+        recordDiv = document.createElement('div');
+        $(recordDiv).attr("class", "record-holder");
+        recordTitleDiv = document.createElement('div');
+        recordTitle = document.createElement('div');
+        $(recordTitle).attr("class", "record-title");
+        $(recordTitle).text("This Round");
+        $(recordTitleDiv).html(recordTitle);
+        $(recordDiv).html(recordTitleDiv);
+    // Output Round History
+        recordCorrectDiv = document.createElement('div');
+        $(recordCorrectDiv).attr("class", "record-correct-holder");
+        $(recordCorrectDiv).text("Correct: " +  roundCorrect);
+        $(recordDiv).append(recordCorrectDiv);
+        recordIncorrectDiv = document.createElement('div');
+        $(recordIncorrectDiv).attr("class", "record-incorrect-holder");
+        $(recordIncorrectDiv).text("Incorrect: " +  roundIncorrect);
+        $(recordDiv).append(recordIncorrectDiv);
+        $('#main-content-inner').append(recordDiv);
+    // Initialize timer functions
+        countdownTimer(); // Start Timer countdown
+        countdownPoints(); // Start Points countdown
+    // Advance to load answers
+        loadAnswers(); // Load Answers   
+    }
+
+    // Load Answers
+    function loadAnswers() {
+    //Grab the answers related to the active question
+        for (l=0; l<categories[activeCategory].questions[questionNumber].answers.length; l++) {
+            var currentAnswer = categories[activeCategory].questions[questionNumber].answers[l].answer;
+            var key = categories[activeCategory].questions[questionNumber].answers[l].correct;
+                    // load the answers as buttons
+            answerButton = document.createElement('button');
+        // mark the correct answer...yes, they could see the correct answer if only they looked at the source code!
+            if (key == true) {
+                $(answerButton).attr("class", "answer");
+                $(answerButton).attr("id", l);
+                $(answerButton).attr("data-grade", 1);
+                correctAnswer = l;
+                
+            }
+            else {
+                $(answerButton).attr("class", "answer");
+                $(answerButton).attr("id", l);
+                $(answerButton).attr("data-grade", 0);
+                
+            }
+            $(answerButton).html(currentAnswer);
+            $(answerDiv).append(answerButton);   
+        }  
+    // Initialize event handle for answer choice
+        $('.answer').click(function() {
+        // which answer did they select
+            chosenAnswer = $(this).attr('id');
+            chosenAnswerGrade = $(this).attr('data-grade');
+            questionPointsEarned = questionPoints;
+        // go to answer evaluation function
+            answerQuestion();   
+        });
+    }
+// Evaluate the user's answer to see if it is correct
+    function answerQuestion() {
+    // Evaluate answer
+        if (chosenAnswerGrade == 1) { //are they right?
+            gradeText = "Right!";
+            correct = 1;
+            pointsEarned = questionPointsEarned + " Points";
+            roundScore = roundScore + questionPoints;
+            gameScore = gameScore + questionPoints;
+            gameCorrect++;
+            roundCorrect++;
+            correctAudio.play();
+        }
+        else if (chosenAnswerGrade == 0) { // or are they wrong?
+            gradeText = "Nope!";
+            correct = 0;
+            pointsEarned = "";
+            gameIncorrect++;
+            roundIncorrect++;
+            incorrectAudio.play();
+        }
+        else { // shouldn't happen but just in case
+
+        }
+    // Create holders to ouput the results of their answer
+
+
+        answerTextHolder = document.createElement('div'); //holds the correct answer
+        $(answerTextHolder).attr("class", "answer");
+        $(answerTextHolder).text(categories[activeCategory].questions[questionNumber].answers[correctAnswer].answer);
+        gradeHolder = document.createElement('div'); // holds the text that tells user if they got question right
+        $(gradeHolder).attr("class", "grade-holder");
+        $(gradeHolder).text(gradeText);
+        pointsHolder = document.createElement('div'); // tells user points they earned based on how quickly they answered
+        $(pointsHolder).attr("class", "points-holder");
+        $(pointsHolder).text(pointsEarned);
+    // throw it all up on the board
+        $('.answer-holder').html(gradeHolder);
+        $('.answer-holder').append(answerTextHolder);
+        $('.answer-holder').append(pointsHolder);
+        $('.round-score').html(roundScore);
+        $('.record-correct-holder').html("Correct: " + roundCorrect);
+        $('.record-incorrect-holder').html("Inorrect: " + roundIncorrect);
+    // stop and reset the points countdown
+        stopPoints();
+        questionPoints = 100;
+    // stop and rest the question timer
+        stopTimer();
+        questionTime = 10;
+        questionNumber++;
+
+     // Do we load another question, a new category, or is game over?
+        if (questionNumber !== categories[activeCategory].questions.length) {
+            delayTen = setTimeout(loadQuestion, 5000);
+        }
+        else if (questionNumber == categories[activeCategory].questions.length) {         
+            delayTen = setTimeout(loadRoundResults, 5000);
+        }
+    }
+// Oops...time expired before they answered, let them know
+    function timeExpired() {
+
+        console.log("Time Expired -- Question Number: " +questionNumber);
+    // update variables
+        gradeText = "Oops! Time Ran Out!";
+        questionPoints = 0;
+        correct = 0;
+        pointsEarned = "";
+        roundIncorrect++;
+        gameIncorrect++;
+        currentQuestion = questionNumber - 1;
+        oopsAudio.play();
+    // create holders for updates
+        $('.points-countdown').html(questionPoints);
+        answerTextHolder = document.createElement('div');
+        $(answerTextHolder).attr("class", "answer");
+        $(answerTextHolder).text(categories[activeCategory].questions[currentQuestion].answers[correctAnswer].answer);
+        gradeHolder = document.createElement('div');
+        $(gradeHolder).attr("class", "grade-holder");
+        $(gradeHolder).text(gradeText);
+        pointsHolder = document.createElement('div');
+        $(pointsHolder).attr("class", "points-holder");
+        $(pointsHolder).text(pointsEarned);
+    // throw it on the board
+        $('.answer-holder').html(gradeHolder);
+        $('.answer-holder').append(answerTextHolder);
+        $('.answer-holder').append(pointsHolder);
+        $('.round-score').html(roundScore);
+        $('.record-correct-holder').html("Correct: " + roundCorrect);
+        $('.record-incorrect-holder').html("Inorrect: " + roundIncorrect);
+    // stop and reset the points countdown
+        stopPoints();
+        questionPoints = 100;
+
+     // Do we load another question, a new category, or is game over?
+        if (questionNumber !== categories[activeCategory].questions.length) {
+            delayTen = setTimeout(loadQuestion, 5000);
+        }
+        else if (questionNumber == categories[activeCategory].questions.length) {
+            delayTen = setTimeout(loadRoundResults, 5000);
+        }
+    }
+// Round is over, show them how they did
+    function loadRoundResults() {
+    // Build the board and output updates  
+        $('#main-content-inner').empty();
+    // Write Category Title 
+        categoryTitleDiv = document.createElement("div");
+        $(categoryTitleDiv).attr("class", "category-title-intro");
+    // Evaluate quality of score
+        totalQuestions = totalQuestions + categories[activeCategory].questions.length;
+        var bestScore = categories[activeCategory].questions.length * 100;
+        var scoreCheck = roundScore / bestScore;
+        var roundRating = (scoreCheck * 100).toFixed(0);
+    // Write Category Results  
+        categoryResultsDiv = document.createElement("div");
+        $(categoryResultsDiv).attr("class", "category-results-div");
+        $(categoryResultsDiv).html("<h2 class='result-update'>Correct: " + roundCorrect + "</h2><h2 class='result-update'>Incorrect: " + roundIncorrect + "</h2><h2 class='result-update'>Round Score: " + roundScore + "</h2>")
+   
+
+        if (scoreCheck >= .5) {
+            categoryIconDiv = document.createElement("div");
+            $(categoryIconDiv).attr("class", "category-icon-div");
+            $(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='40px'>");
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Well Done!</h1><div class='badge-earned'><h2>You earned a badge!</h2><img src='assets/images/icons/" + categories[activeCategory].icon +"' height='70px'></div>");
+
+          if ($.inArray(activeCategory, badgesEarned) < 0) {
+            badgesEarned.push(activeCategory);
+          }
+        }
+
+        else if (scoreCheck < .5 && scoreCheck >=.2){
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Not bad...not good...but not bad...</h1>");
+
+        }
+
+        else {
+             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Ugh...There are no words...</h1>");
+        }
+
+        //$('#main-content-inner').html(categoryIconDiv);
+        $('#main-content-inner').append(categoryTitleDiv);
+        $('#main-content-inner').append(categoryResultsDiv);
+
+
+        $('.points-board').empty();
+        $('.time-board').empty();
+        categoryCounter++;
+        
+// Advance game
+        if (categoryCounter < 3) {
+            delayTen = setTimeout(loadCategoryIntro, 5000);
+        }
+        else {
+            delayTen = setTimeout(loadGameResults, 5000);
+        }
+    }
+// Game is over, show them how they did
+    function loadGameResults() {
+    // Play Game Over themre
+        gameOverAudio.play();
+
+        $('#main-content').empty(); // emmpty the clutter off the game board
+    // Load the results of the game and return game board to natural state
+        mainDiv = document.createElement("div");
+        $(mainDiv).attr("id", "main-content-inner");
+        $('#main-content').html(mainDiv);
+        $('#main-content').css({'background': '#b72a76'}); // return color to base
+    // Write Feedback
+        categoryTitleDiv = document.createElement("div");
+        $(categoryTitleDiv).attr("class", "category-title-intro");
+    // Evaluate quality of score
+        var bestScore = totalQuestions * 100;
+        var scoreCheck = gameScore / bestScore;
+        var gameRating = (scoreCheck * 100).toFixed(0);
+    // Write Game Results  
+        categoryResultsDiv = document.createElement("div");
+        $(categoryResultsDiv).attr("class", "category-results-div");
+        $(categoryResultsDiv).html("<h2 class='result-update'>Correct: " + gameCorrect + "</h2><h2 class='result-update'>Incorrect: " + gameIncorrect + "</h2><h2 class='result-update'>Game Score: " + gameScore + "</h2>")
+    // Evaluate Score
+        if (scoreCheck >= .5) {
+            //categoryIconDiv = document.createElement("div");
+            //$(categoryIconDiv).attr("class", "category-icon-div");
+            //$(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='40px'>");
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>You think you're smarter than me? Maybe you are...</h1>");
+        }
+        else if (scoreCheck < .5 && scoreCheck >=.2){
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>Ignorance is bliss. Lucky you.</h1>");
+        }
+        else {
+             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>On the bright side...<br>you have no bright side.</h1>");
+        }
+
+        if (badgesEarned.length >= 1) {
+            badgesEarnedDiv = document.createElement("div");
+            $(badgesEarnedDiv).attr("class", "badges-earned-holder");
+            badgesEarnedTitle = document.createElement("h2");
+            $(badgesEarnedTitle).attr("class", "badges-earned-title");
+            $(badgesEarnedTitle).text("You have earned these badges:");
+            $(badgesEarnedDiv).html(badgesEarnedTitle);
+
+            for (i=0; i < badgesEarned.length; i++) {
+                 $(badgesEarnedDiv).append("<img src='assets/images/icons/" + categories[badgesEarned[i]].icon +"' class='earned-badge'>");
+            }
+        }
+
+        startOverButton = document.createElement('button');
+        $(startOverButton).attr("class", "start-over gameplay");
+        $(startOverButton).text("Play Again");
+
+        $(categoryResultsDiv).append("<h1>Play again...if you dare</h1>");
+        $(categoryResultsDiv).append(startOverButton);
+
+       
+
+        $('#main-content-inner').append(categoryTitleDiv);
+        $('#main-content-inner').append(badgesEarnedDiv);
+        $('#main-content-inner').append(categoryResultsDiv);
+
+        $('.start-over').on('click', resetGame); // Reset Game to start over from the beginning
+    }
+// Create timer to limit time to answer question
+    function decreaseTimer(){
+    // Decrease number by one.
+        questionTime--;
+    // Output timer to board
+        $('.timer-countdown').html(questionTime);
+    // Once number hits zero...
+        if (questionTime === 0){
+     // Stop the timer
+            stopTimer();
+            questionTime = 10; // reset timer
+            
+    // if round isnt over, tell them time expired and move on
+            if (questionNumber < (categories[activeCategory].questions.length)) {
+            questionNumber++; // update question counter
+            timeExpired();
+            }
+
+            else if (questionNumber = (categories[activeCategory].questions.length)) {
+            questionNumber++; // update question counter
+            timeExpired();
+            }
+    // if round is over, show them round results and move on
+            else {
+            categoryCounter++;
+                if (categoryCounter <= 3) {
+                    loadRoundResults();
+                }
+    // if game is over, shwo them the game results
+                else {
+                    loadGameresults();
+                }
+            }
+        }
+    }
+
+    function countdownTimer(){
+    // Run question timer
+        counter = setInterval(decreaseTimer, 1000);
+    }
+
+    function stopTimer(){
+    // Clears timer counter interval.
+        clearInterval(counter);
+    }
+
+    function decreasePoints(){
+    // Decrease number by one.
+        questionPoints--;
+    // Show the number in the points cuntdown
+        $('.points-countdown').html(questionPoints);
+    // Once number hits zero...
+        if (questionPoints === 0){
+        // Stop the Countdown
+            stopPoints();
+            questionPoints = 100; // reset points
+        }
+    }
+
+    function countdownPoints(){
+    // Run points countdown
+        pointsCounter = setInterval(decreasePoints, 100);
+    }
+
+    function stopPoints(){
+    // Clears points counter interval.
+        clearInterval(pointsCounter);
+    }
+});
+
+</script>
+
 </body>
 </html>
+
+
+
+

@@ -30,11 +30,11 @@
         <div id="scoreboard"></div>
         <div id="main-content-inner">
             <div id="intro">
-            <h1>Welcome to Do-ya-know!</h1>
+            <h1 class="welcome">Welcome to Do-ya-know!</h1>
             <h2>Let’s find out how much useless information <br>
             you have stuffed in your head.
             </h2>
-            <button class='start-game'>Play Game</button>
+            <button class='start-game gameplay'>Play Game</button>
             </div>
         </div>        
     </div>
@@ -74,6 +74,13 @@ $(document).ready(function(){
     var chosenAnswerGrade;
     var correctAnswer;
     var questionPointsEarned;
+    var correctAudio = new Audio('assets/sounds/correct.mp3');
+    var incorrectAudio = new Audio('assets/sounds/incorrect.mp3');
+    var oopsAudio = new Audio('assets/sounds/oops.mp3');
+    var gameOverAudio = new Audio('assets/sounds/gameOver.mp3');
+    var totalQuestions = 0;
+    var badgesEarned = [];
+
 // Array containing category objects which hold questions and answers
     var categories = [
         {name: "Movies", // Name of category
@@ -545,6 +552,7 @@ $(document).ready(function(){
         questionPointsEarned = 0;
         questionPoints = 100;
         questionTime = 10;
+        totalQuestions = 0;
     //Clear running timeouts
         clearTimeout(delayTen);
         clearTimeout(delayThree);
@@ -564,11 +572,12 @@ $(document).ready(function(){
         introDiv = document.createElement("div");
         $(introDiv).attr("id", "intro");
         welcomeTitle = document.createElement('h1');
+        $(welcomeTitle).attr("class", "welcome")
         $(welcomeTitle).text("Welcome to Do-ya-know!");
         introP = document.createElement("h2");
         $(introP).html("Let’s find out how much useless information <br> you have stuffed in your head.");
         startGameButton = document.createElement("button");
-        $(startGameButton).attr("class", "start-game");
+        $(startGameButton).attr("class", "start-game gameplay");
         $(startGameButton).text("Play Game");
 
         $(introDiv).append(welcomeTitle);
@@ -825,11 +834,13 @@ $(document).ready(function(){
                 $(answerButton).attr("id", l);
                 $(answerButton).attr("data-grade", 1);
                 correctAnswer = l;
+                
             }
             else {
                 $(answerButton).attr("class", "answer");
                 $(answerButton).attr("id", l);
                 $(answerButton).attr("data-grade", 0);
+                
             }
             $(answerButton).html(currentAnswer);
             $(answerDiv).append(answerButton);   
@@ -855,6 +866,7 @@ $(document).ready(function(){
             gameScore = gameScore + questionPoints;
             gameCorrect++;
             roundCorrect++;
+            correctAudio.play();
         }
         else if (chosenAnswerGrade == 0) { // or are they wrong?
             gradeText = "Nope!";
@@ -862,6 +874,7 @@ $(document).ready(function(){
             pointsEarned = "";
             gameIncorrect++;
             roundIncorrect++;
+            incorrectAudio.play();
         }
         else { // shouldn't happen but just in case
 
@@ -913,6 +926,7 @@ $(document).ready(function(){
         roundIncorrect++;
         gameIncorrect++;
         currentQuestion = questionNumber - 1;
+        oopsAudio.play();
     // create holders for updates
         $('.points-countdown').html(questionPoints);
         answerTextHolder = document.createElement('div');
@@ -945,10 +959,47 @@ $(document).ready(function(){
     }
 // Round is over, show them how they did
     function loadRoundResults() {
-    // Build the board and output updates
+    // Build the board and output updates  
         $('#main-content-inner').empty();
-        $('#main-content-inner').html("ROUND RESULTS");
-        $('#main-content-inner').append("<br>Correct: " + roundCorrect + "<br>Incorrect: " + roundIncorrect + "<br>Round Score: " + roundScore);
+    // Write Category Title 
+        categoryTitleDiv = document.createElement("div");
+        $(categoryTitleDiv).attr("class", "category-title-intro");
+    // Evaluate quality of score
+        totalQuestions = totalQuestions + categories[activeCategory].questions.length;
+        var bestScore = categories[activeCategory].questions.length * 100;
+        var scoreCheck = roundScore / bestScore;
+        var roundRating = (scoreCheck * 100).toFixed(0);
+    // Write Category Results  
+        categoryResultsDiv = document.createElement("div");
+        $(categoryResultsDiv).attr("class", "category-results-div");
+        $(categoryResultsDiv).html("<h2 class='result-update'>Correct: " + roundCorrect + "</h2><h2 class='result-update'>Incorrect: " + roundIncorrect + "</h2><h2 class='result-update'>Round Score: " + roundScore + "</h2>")
+   
+
+        if (scoreCheck >= .5) {
+            categoryIconDiv = document.createElement("div");
+            $(categoryIconDiv).attr("class", "category-icon-div");
+            $(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='40px'>");
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Well Done!</h1><div class='badge-earned'><h2>You earned a badge!</h2><img src='assets/images/icons/" + categories[activeCategory].icon +"' height='70px'></div>");
+
+          if ($.inArray(activeCategory, badgesEarned) < 0) {
+            badgesEarned.push(activeCategory);
+          }
+        }
+
+        else if (scoreCheck < .5 && scoreCheck >=.2){
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Not bad...not good...but not bad...</h1>");
+
+        }
+
+        else {
+             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Ugh...There are no words...</h1>");
+        }
+
+        //$('#main-content-inner').html(categoryIconDiv);
+        $('#main-content-inner').append(categoryTitleDiv);
+        $('#main-content-inner').append(categoryResultsDiv);
+
+
         $('.points-board').empty();
         $('.time-board').empty();
         categoryCounter++;
@@ -963,14 +1014,67 @@ $(document).ready(function(){
     }
 // Game is over, show them how they did
     function loadGameResults() {
-        $('#main-content-inner').empty(); // emmpty the clutter off the game board
+    // Play Game Over themre
+        gameOverAudio.play();
+
+        $('#main-content').empty(); // emmpty the clutter off the game board
     // Load the results of the game and return game board to natural state
         mainDiv = document.createElement("div");
         $(mainDiv).attr("id", "main-content-inner");
         $('#main-content').html(mainDiv);
-        $('#main-content-inner').html("GAME RESULTS");
-        $('#main-content').css({'background-color': '#b72a76'});
-        $('#main-content-inner').append("<br>Correct: " + gameCorrect + "<br>Incorrect: " + gameIncorrect + "<br>Game Score: " + gameScore);
+        $('#main-content').css({'background': '#b72a76'}); // return color to base
+    // Write Feedback
+        categoryTitleDiv = document.createElement("div");
+        $(categoryTitleDiv).attr("class", "category-title-intro");
+    // Evaluate quality of score
+        var bestScore = totalQuestions * 100;
+        var scoreCheck = gameScore / bestScore;
+        var gameRating = (scoreCheck * 100).toFixed(0);
+    // Write Game Results  
+        categoryResultsDiv = document.createElement("div");
+        $(categoryResultsDiv).attr("class", "category-results-div");
+        $(categoryResultsDiv).html("<h2 class='result-update'>Correct: " + gameCorrect + "</h2><h2 class='result-update'>Incorrect: " + gameIncorrect + "</h2><h2 class='result-update'>Game Score: " + gameScore + "</h2>")
+    // Evaluate Score
+        if (scoreCheck >= .5) {
+            //categoryIconDiv = document.createElement("div");
+            //$(categoryIconDiv).attr("class", "category-icon-div");
+            //$(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='40px'>");
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>You think you're smarter than me? Maybe you are...</h1>");
+        }
+        else if (scoreCheck < .5 && scoreCheck >=.2){
+            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>Ignorance is bliss. Lucky you.</h1>");
+        }
+        else {
+             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>On the bright side...<br>you have no bright side.</h1>");
+        }
+
+        if (badgesEarned.length >= 1) {
+            badgesEarnedDiv = document.createElement("div");
+            $(badgesEarnedDiv).attr("class", "badges-earned-holder");
+            badgesEarnedTitle = document.createElement("h2");
+            $(badgesEarnedTitle).attr("class", "badges-earned-title");
+            $(badgesEarnedTitle).text("You have earned these badges:");
+            $(badgesEarnedDiv).html(badgesEarnedTitle);
+
+            for (i=0; i < badgesEarned.length; i++) {
+                 $(badgesEarnedDiv).append("<img src='assets/images/icons/" + categories[badgesEarned[i]].icon +"' class='earned-badge'>");
+            }
+        }
+
+        startOverButton = document.createElement('button');
+        $(startOverButton).attr("class", "start-over gameplay");
+        $(startOverButton).text("Play Again");
+
+        $(categoryResultsDiv).append("<h1>Play again...if you dare</h1>");
+        $(categoryResultsDiv).append(startOverButton);
+
+       
+
+        $('#main-content-inner').append(categoryTitleDiv);
+        $('#main-content-inner').append(badgesEarnedDiv);
+        $('#main-content-inner').append(categoryResultsDiv);
+
+        $('.start-over').on('click', resetGame); // Reset Game to start over from the beginning
     }
 // Create timer to limit time to answer question
     function decreaseTimer(){
