@@ -252,61 +252,59 @@ $(document).ready(function(){
     
 // Create and Load scoreboard
     function loadScoreboard() {
-        // First clear out eh scoreboard holder just in case
-            scoreboardDiv = document.createElement("div");
-            $(scoreboardDiv).attr("id", "scoreboard");
-            $('#main-content').html(scoreboardDiv);
-        // Rebuild game board
-            mainContentInner = document.createElement('div');
-            $(mainContentInner).attr("id", "main-content-inner");
-            $('#main-content').append(mainContentInner);
-        // Build the Question Points feature
-            pointsDiv = document.createElement('div');
-            $(pointsDiv).attr("class", "points-board");
-            $(pointsDiv).html("<h3 class='board-title'>Question Points</h3>");
-            pointsNumber = document.createElement('h4');
-            $(pointsNumber).attr("class", "board-title-2 points-countdown");
-            $(pointsNumber).text(questionPoints);
-            $(pointsDiv).append(pointsNumber);
-        // Build the Questiin Timer feature
-            timeDiv = document.createElement('div');
-            $(timeDiv).attr("class", "time-board");
-            $(timeDiv).html("<h3 class='board-title'>Time Remaining</h3>");
-            timeNumber = document.createElement('h4');
-            $(timeNumber).attr("class", "board-title-2 timer-countdown");
-            $(timeNumber).text(questionTime);
-            $(timeDiv).append(timeNumber);
-        // Build the Round Score feature
-            scoreDiv = document.createElement('div');
-            $(scoreDiv).attr("class", "game-score-board");
-            $(scoreDiv).html("<h3 class='board-title'>Round Score</h3>");
-            scoreNumber = document.createElement('h4');
-            $(scoreNumber).attr("class", "board-title-2 round-score");
-            $(scoreNumber).text(roundScore);
-            $(scoreDiv).append(scoreNumber);
-        // Build the Category name feature
-            categoryDiv = document.createElement('div');
-            $(categoryDiv).attr("class", "category-board");
-            categoryName = document.createElement('h3');
-            $(categoryName).attr("class", "category-name");
-            $(categoryName).text(categories[activeCategory].name);
-            $(categoryDiv).append(categoryName);
-        // Throw them on the board
-            $('#scoreboard').append(pointsDiv);
-            $('#scoreboard').append(timeDiv);
-            $('#scoreboard').append(scoreDiv);
-            $('#scoreboard').append(categoryDiv);
+    // First clear out eh scoreboard holder just in case
+        scoreboardDiv = document.createElement("div");
+        $(scoreboardDiv).attr("id", "scoreboard");
+        $('#main-content').html(scoreboardDiv);
+    // Rebuild game board
+        mainContentInner = document.createElement('div');
+        $(mainContentInner).attr("id", "main-content-inner");
+        $('#main-content').append(mainContentInner);
+    // Build the Question Points feature
+        pointsDiv = document.createElement('div');
+        $(pointsDiv).attr("class", "points-board");
+        $(pointsDiv).html("<h3 class='board-title'>Question Points</h3>");
+        pointsNumber = document.createElement('h4');
+        $(pointsNumber).attr("class", "board-title-2 points-countdown");
+        $(pointsNumber).text(questionPoints);
+        $(pointsDiv).append(pointsNumber);
+    // Build the Questiin Timer feature
+        timeDiv = document.createElement('div');
+        $(timeDiv).attr("class", "time-board");
+        $(timeDiv).html("<h3 class='board-title'>Time Remaining</h3>");
+        timeNumber = document.createElement('h4');
+        $(timeNumber).attr("class", "board-title-2 timer-countdown");
+        $(timeNumber).text(questionTime);
+        $(timeDiv).append(timeNumber);
+    // Build the Round Score feature
+        scoreDiv = document.createElement('div');
+        $(scoreDiv).attr("class", "game-score-board");
+        $(scoreDiv).html("<h3 class='board-title'>Round Score</h3>");
+        scoreNumber = document.createElement('h4');
+        $(scoreNumber).attr("class", "board-title-2 round-score");
+        $(scoreNumber).text(roundScore);
+        $(scoreDiv).append(scoreNumber);
+    // Build the Category name feature
+        categoryDiv = document.createElement('div');
+        $(categoryDiv).attr("class", "category-board");
+        categoryName = document.createElement('h3');
+        $(categoryName).attr("class", "category-name");
+        $(categoryName).text(categories[activeCategory].name);
+        $(categoryDiv).append(categoryName);
+    // Throw them on the board
+        $('#scoreboard').append(pointsDiv);
+        $('#scoreboard').append(timeDiv);
+        $('#scoreboard').append(scoreDiv);
+        $('#scoreboard').append(categoryDiv);
     }
 
 // Load category intro
     function loadCategoryIntro() {
-
         $('#main-content').empty(); // Empty Game Board
     // Rebuild game board
         mainContentInner = document.createElement('div');
         $(mainContentInner).attr("id", "main-content-inner");
         $('#main-content').html(mainContentInner);
-
     // Set the category
         activeCategory = categoriesChosen[categoryCounter]; // assign the active category
         $('#main-content').css({'background': categories[activeCategory].color}); // change color to match category
@@ -320,7 +318,7 @@ $(document).ready(function(){
         $('#main-content-inner').html(categoryIconDiv);
         $('#main-content-inner').append(categoryTitleDiv);
     // Delay and then load the category data
-       delayThree = setTimeout(loadGameCategory, 3000);
+        delayThree = setTimeout(loadGameCategory, 3000);
     }
 
 // Load category and start question and answer
@@ -409,8 +407,7 @@ $(document).ready(function(){
                 $(answerButton).attr("class", "answer");
                 $(answerButton).attr("id", l);
                 $(answerButton).attr("data-grade", 1);
-                correctAnswer = l;
-                
+                correctAnswer = l;        
             }
             else {
                 $(answerButton).attr("class", "answer");
@@ -456,8 +453,6 @@ $(document).ready(function(){
 
         }
     // Create holders to ouput the results of their answer
-
-
         answerTextHolder = document.createElement('div'); //holds the correct answer
         $(answerTextHolder).attr("class", "answer");
         $(answerTextHolder).text(categories[activeCategory].questions[questionNumber].answers[correctAnswer].answer);
@@ -481,8 +476,7 @@ $(document).ready(function(){
         stopTimer();
         questionTime = 10;
         questionNumber++;
-
-     // Do we load another question, a new category, or is game over?
+    // Do we load another question, a new category, or is game over?
         if (questionNumber !== categories[activeCategory].questions.length) {
             delayTen = setTimeout(loadQuestion, 5000);
         }
@@ -492,7 +486,6 @@ $(document).ready(function(){
     }
 // Oops...time expired before they answered, let them know
     function timeExpired() {
-
         console.log("Time Expired -- Question Number: " +questionNumber);
     // update variables
         gradeText = "Oops! Time Ran Out!";
@@ -549,8 +542,7 @@ $(document).ready(function(){
         categoryResultsDiv = document.createElement("div");
         $(categoryResultsDiv).attr("class", "category-results-div");
         $(categoryResultsDiv).html("<h2 class='result-update'>Correct: " + roundCorrect + "</h2><h2 class='result-update'>Incorrect: " + roundIncorrect + "</h2><h2 class='result-update'>Round Score: " + roundScore + "</h2>")
-   
-
+    // Evaluate their performance
         if (scoreCheck >= .5) {
             categoryIconDiv = document.createElement("div");
             $(categoryIconDiv).attr("class", "category-icon-div");
@@ -561,10 +553,8 @@ $(document).ready(function(){
             badgesEarned.push(activeCategory);
           }
         }
-
         else if (scoreCheck < .5 && scoreCheck >=.2){
             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Not bad...not good...but not bad...</h1>");
-
         }
 
         else {
@@ -574,7 +564,6 @@ $(document).ready(function(){
         //$('#main-content-inner').html(categoryIconDiv);
         $('#main-content-inner').append(categoryTitleDiv);
         $('#main-content-inner').append(categoryResultsDiv);
-
 
         $('.points-board').empty();
         $('.time-board').empty();
@@ -647,7 +636,10 @@ $(document).ready(function(){
        
 
         $('#main-content-inner').append(categoryTitleDiv);
-        $('#main-content-inner').append(badgesEarnedDiv);
+
+        if (badgesEarned.length >=1) {
+          $('#main-content-inner').append(badgesEarnedDiv);
+        }
         $('#main-content-inner').append(categoryResultsDiv);
 
         $('.start-over').on('click', resetGame); // Reset Game to start over from the beginning
