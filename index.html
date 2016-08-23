@@ -7,7 +7,7 @@
     <link href="assets/css/trivia_style.css" rel="stylesheet" type="text/css"><!-- Add unique stylesheet -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"><!-- Add Font Awesome -->
     <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i|Asap:400,400i,700,700i|Bitter:400,400i,700|Droid+Sans:400,700|Droid+Serif:400,400i,700,700i|Roboto+Slab:100,300,400,700" rel="stylesheet"><!-- Add Google Web Font -->
-
+    <script src="assets/script/categories.js"></script> <!-- Loads catergories, questions and answers data -->
     <script 
     src="https://code.jquery.com/jquery-3.1.0.js"   
     integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   
@@ -81,430 +81,8 @@ $(document).ready(function(){
     var totalQuestions = 0;
     var badgesEarned = [];
 
-// Array containing category objects which hold questions and answers
-    var categories = [
-        {name: "Movies", // Name of category
-        icon: "movies.png", // name of icon file
-        active: false, // has the user chosen this category for gameplay?
-        badge: false, // has the user won the badge in this category?
-        color: "#98288b",
-        questions: [ 
-
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: true
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: true
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: true
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            }
-            ]
-
-        },
-        {name: "Sports",
-        icon: "sports.png",
-        active: false,
-        badge: false,
-        color: "#c8431e",
-        questions: [ 
-
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: true
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: true
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: true
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            }
-            ]
-
-        },
-        {name: "Art",
-        icon: "art.png",
-        active: false,
-        badge: false,
-        color: "#ce2630",
-        questions: [ 
-
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: true
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: true
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: true
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            }
-            ]
-
-        },
-        {name: "Television",
-        icon: "tv.png",
-        active: false,
-        badge: false,
-        color: "#4862d6",
-        questions: [ 
-
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: true
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: true
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: true
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            }
-            ]
-
-        },
-        {name: "Geography",
-        icon: "geography.png",
-        active: false,
-        badge: false,
-        color: "#f58b25",
-        questions: [ 
-
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: true
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: true
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: true
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            }
-            ]
-
-        },
-        {name: "Science",
-        icon: "science.png",
-        active: false,
-        badge: false,
-        color: "#428546",
-        questions: [ 
-
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: true
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: true
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: false
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            },
-            {question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt in magna nec accumsan. Proin in tristique dui, consectetur suscipit erat?',
-             answers: [ 
-                      {
-                        answer: 'Teddy Roosevelt',
-                        correct: false
-                      },
-                      {
-                        answer: 'Bob Dole',
-                        correct: false
-                      },
-                      {
-                        answer: 'Roger Staubach',
-                        correct: true
-                      },
-                      {
-                        answer: 'F. Scott Fitzgerald',
-                        correct: false
-                      }
-                      ]
-            }
-            ]
-
-        }
-    ]
-
+// Array containing category objects which hold questions and answers now stored in assets/script/categories.js
+    
  // Event Handlers
     
     $('.start-game').on('click', startGame); // Begin game by switching to categories page
@@ -517,7 +95,7 @@ $(document).ready(function(){
         $('#main-content h1').css({'margin-top': '0px'});
         $('#main-content-inner').html("<h1>Choose three categories.</h1><h2>Answer the questions in each category. Score high enough in each category to win a badge.</h2>");
 
-         $('.category').on('click', chooseCategory); // select a category
+        $('.category').on('click', chooseCategory); // select a category
     // load categories
         loadCategories();
     }
@@ -586,25 +164,23 @@ $(document).ready(function(){
 
         $('#main-content-inner').html(introDiv);
 
-         $('.start-game').on('click', startGame); // Begin game by switching to categories page
+        $('.start-game').on('click', startGame); // Begin game by switching to categories page
     }
 
 // Give up and go to end of game
     function surrenderGame() {
-        //Clear running timeouts
+      //Clear running timeouts
         clearTimeout(delayTen);
         clearTimeout(delayThree);
-
+      // Load game results
         loadGameResults();
-
-
     }
 
 // Load Categories
     function loadCategories() {
     // Output categories holde on game board
-       categoriesDiv = document.createElement('div');
-       $(categoriesDiv).attr('id', 'categories-holder');
+        categoriesDiv = document.createElement('div');
+        $(categoriesDiv).attr('id', 'categories-holder');
     // Loop through categories, outputting the name and icon of each as a button 
         for (i=0; i < categories.length; i++) {
         // Make a holder for category button
@@ -669,7 +245,7 @@ $(document).ready(function(){
     // Throw them on the board-title
         $('#buttons').append(startOverButton);
         $('#buttons').append(surrenderButton);
-
+    // Event handlers
         $('.start-over').on('click', resetGame); // Reset Game to start over from the beginning
         $('.surrender-button').on('click', surrenderGame); // Reset Game to start over from the beginning
     }
