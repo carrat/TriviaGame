@@ -63,7 +63,7 @@ $(document).ready(function(){
     var roundScore = 0;
     var questionPoints = 100;
     var questionTime = 10;
-    var questionNumber = 1;
+    var questionNumber = 0;
     var roundCorrect = 0;
     var roundIncorrect = 0;
     var gameCorrect = 0;
@@ -78,11 +78,8 @@ $(document).ready(function(){
     var incorrectAudio = new Audio('assets/sounds/incorrect.mp3');
     var oopsAudio = new Audio('assets/sounds/oops.mp3');
     var gameOverAudio = new Audio('assets/sounds/gameOver.mp3');
-    var totalQuestions = 0; // keeps track of how many questions have been asked so far during the game
-    var badgesEarned = []; // holds which badges the player has earned. Keeps them on new game
-    var questionsAsked = []; // holds the questions numbers to be asked in active round
-    var questionsToAsk = 10; // variable holds how many questions are asked in each round
-    var qNum;
+    var totalQuestions = 0;
+    var badgesEarned = [];
 
 // Array containing category objects which hold questions and answers now stored in assets/script/categories.js
     
@@ -120,7 +117,7 @@ $(document).ready(function(){
         roundScore = 0;
         questionPoints = 100;
         questionTime = 10;
-        questionNumber = 1;
+        questionNumber = 0;
         roundCorrect = 0;
         roundIncorrect = 0;
         gameCorrect = 0;
@@ -134,9 +131,6 @@ $(document).ready(function(){
         questionPoints = 100;
         questionTime = 10;
         totalQuestions = 0;
-        questionsAsked = [];
-        questionsToAsk = 10;
-        qNum;
     //Clear running timeouts
         clearTimeout(delayTen);
         clearTimeout(delayThree);
@@ -330,12 +324,10 @@ $(document).ready(function(){
 // Load category and start question and answer
     function loadGameCategory() {
     // reset some variables for new round
-        questionNumber = 1;
+        questionNumber = 0;
         roundScore = 0;
         roundCorrect = 0;
         roundIncorrect = 0;
-        questionsAsked = [];
-        currentQuestion = 0;
     // load the nav buttons in header
         $('#buttons').empty();
         loadNavButtons(); 
@@ -343,26 +335,9 @@ $(document).ready(function(){
         activeCategory = categoriesChosen[categoryCounter]; // assign the active category
         $('#main-content-inner').empty(); // Empty Game Board
         $('#main-content').css({'background': categories[activeCategory].color}); // change color to match category
-
-    // load random questions into array
-    do {   
-            qNum = getRandomInt(0,19);
-            questionX = categories[activeCategory].questions[qNum];
-            if ($.inArray(qNum, questionsAsked) < 0) {
-              questionsAsked.push(qNum);
-              console.log(questionsAsked);
-            }
-    } while (questionsAsked.length < 10); 
-
     // Advance Game
-    console.log("Questions to Ask: " + questionsAsked.length);
         loadScoreboard(); // Load the scoreboard in preparation for the round
         loadQuestion(questionNumber); // Load the first question
-    }
-
-    // get Random Integer so question is picked randomly. Pick from 0-19 for index of category
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
 // Load question
@@ -383,11 +358,11 @@ $(document).ready(function(){
     // Create and output question counter
         questionCheckDiv = document.createElement('div');
         $(questionCheckDiv).attr("class", "question-check-holder");
-        $(questionCheckDiv).html("Question " +  questionNumber + " of " + questionsToAsk);
+        currentQuestion = questionNumber + 1;
+        $(questionCheckDiv).html("Question " +  currentQuestion + " of " + categories[activeCategory].questions.length);
         $('#main-content-inner').html(questionCheckDiv);
-      
-        currentQuestion = questionNumber - 1;
-        $(questionText).text(categories[activeCategory].questions[questionsAsked[currentQuestion]].question);
+     // Get question and output to game board
+        $(questionText).text(categories[activeCategory].questions[questionNumber].question);
         $(questionDiv).html(dyk);
         $(questionDiv).append(questionText);
         $('#main-content-inner').append(questionDiv);
@@ -422,9 +397,9 @@ $(document).ready(function(){
     // Load Answers
     function loadAnswers() {
     //Grab the answers related to the active question
-        for (l=0; l<categories[activeCategory].questions[questionsAsked[currentQuestion]].answers.length; l++) {
-            var currentAnswer = categories[activeCategory].questions[questionsAsked[currentQuestion]].answers[l].answer;
-            var key = categories[activeCategory].questions[questionsAsked[currentQuestion]].answers[l].correct;
+        for (l=0; l<categories[activeCategory].questions[questionNumber].answers.length; l++) {
+            var currentAnswer = categories[activeCategory].questions[questionNumber].answers[l].answer;
+            var key = categories[activeCategory].questions[questionNumber].answers[l].correct;
                     // load the answers as buttons
             answerButton = document.createElement('button');
         // mark the correct answer...yes, they could see the correct answer if only they looked at the source code!
@@ -480,7 +455,7 @@ $(document).ready(function(){
     // Create holders to ouput the results of their answer
         answerTextHolder = document.createElement('div'); //holds the correct answer
         $(answerTextHolder).attr("class", "answer");
-        $(answerTextHolder).text(categories[activeCategory].questions[questionsAsked[currentQuestion]].answers[correctAnswer].answer);
+        $(answerTextHolder).text(categories[activeCategory].questions[questionNumber].answers[correctAnswer].answer);
         gradeHolder = document.createElement('div'); // holds the text that tells user if they got question right
         $(gradeHolder).attr("class", "grade-holder");
         $(gradeHolder).text(gradeText);
@@ -501,15 +476,12 @@ $(document).ready(function(){
         stopTimer();
         questionTime = 10;
         questionNumber++;
-
-        console.log(questionNumber);
-
     // Do we load another question, a new category, or is game over?
-        if (questionNumber > questionsToAsk) {
-            delayTen = setTimeout(loadRoundResults, 5000);
-        }
-        else  {         
+        if (questionNumber !== categories[activeCategory].questions.length) {
             delayTen = setTimeout(loadQuestion, 5000);
+        }
+        else if (questionNumber == categories[activeCategory].questions.length) {         
+            delayTen = setTimeout(loadRoundResults, 5000);
         }
     }
 // Oops...time expired before they answered, let them know
@@ -522,12 +494,13 @@ $(document).ready(function(){
         pointsEarned = "";
         roundIncorrect++;
         gameIncorrect++;
+        currentQuestion = questionNumber - 1;
         oopsAudio.play();
     // create holders for updates
         $('.points-countdown').html(questionPoints);
         answerTextHolder = document.createElement('div');
         $(answerTextHolder).attr("class", "answer");
-        $(answerTextHolder).text(categories[activeCategory].questions[questionsAsked[currentQuestion]].answers[correctAnswer].answer);
+        $(answerTextHolder).text(categories[activeCategory].questions[currentQuestion].answers[correctAnswer].answer);
         gradeHolder = document.createElement('div');
         $(gradeHolder).attr("class", "grade-holder");
         $(gradeHolder).text(gradeText);
@@ -546,10 +519,10 @@ $(document).ready(function(){
         questionPoints = 100;
 
      // Do we load another question, a new category, or is game over?
-        if (questionNumber !== questionsToAsk) {
+        if (questionNumber !== categories[activeCategory].questions.length) {
             delayTen = setTimeout(loadQuestion, 5000);
         }
-        else if (questionNumber == questionsToAsk) {
+        else if (questionNumber == categories[activeCategory].questions.length) {
             delayTen = setTimeout(loadRoundResults, 5000);
         }
     }
@@ -561,8 +534,8 @@ $(document).ready(function(){
         categoryTitleDiv = document.createElement("div");
         $(categoryTitleDiv).attr("class", "category-title-intro");
     // Evaluate quality of score
-        totalQuestions = totalQuestions + questionsToAsk;
-        var bestScore = questionsToAsk * 100;
+        totalQuestions = totalQuestions + categories[activeCategory].questions.length;
+        var bestScore = categories[activeCategory].questions.length * 100;
         var scoreCheck = roundScore / bestScore;
         var roundRating = (scoreCheck * 100).toFixed(0);
     // Write Category Results  
@@ -570,7 +543,7 @@ $(document).ready(function(){
         $(categoryResultsDiv).attr("class", "category-results-div");
         $(categoryResultsDiv).html("<h2 class='result-update'>Correct: " + roundCorrect + "</h2><h2 class='result-update'>Incorrect: " + roundIncorrect + "</h2><h2 class='result-update'>Round Score: " + roundScore + "</h2>")
     // Evaluate their performance
-        if (scoreCheck >= .4) {
+        if (scoreCheck >= .5) {
             categoryIconDiv = document.createElement("div");
             $(categoryIconDiv).attr("class", "category-icon-div");
             $(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='40px'>");
@@ -580,7 +553,7 @@ $(document).ready(function(){
             badgesEarned.push(activeCategory);
           }
         }
-        else if (scoreCheck < .4 && scoreCheck >=.2){
+        else if (scoreCheck < .5 && scoreCheck >=.2){
             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + roundRating + "</h1><h1 class='category-title-intro-text'>Not bad...not good...but not bad...</h1>");
         }
 
@@ -684,12 +657,12 @@ $(document).ready(function(){
             questionTime = 10; // reset timer
             
     // if round isnt over, tell them time expired and move on
-            if (questionNumber < (questionsToAsk)) {
+            if (questionNumber < (categories[activeCategory].questions.length)) {
             questionNumber++; // update question counter
             timeExpired();
             }
 
-            else if (questionNumber = (questionsToAsk)) {
+            else if (questionNumber = (categories[activeCategory].questions.length)) {
             questionNumber++; // update question counter
             timeExpired();
             }
