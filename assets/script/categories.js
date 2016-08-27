@@ -196,7 +196,7 @@ var categories = [
                       ]
             },
 			//10
-			{question: 'which film had the tagline "In Space No One Can Hear You Screm"?',
+			{question: 'which film had the tagline "In Space No One Can Hear You Scream"?',
              answers: [ 
                       {
                         answer: 'Blade Runner',

@@ -393,12 +393,13 @@ h3.category-label {
 	display: inline;
 	font-size: 30px;
 	font-family: 'Bitter', Arial, sans-serif;
+	letter-spacing: .05em;
 }
 
 .dyk{
-	color: rgba(255,255,255,0.5);
+	color: rgba(255,255,255,0.6);
 	display: inline;
-	font-size: 30px;
+	font-size: 36px;
 }
 
 .answer-holder {
@@ -432,7 +433,7 @@ h3.category-label {
 	padding: 0px 0px 10px 0px;
 	color: #FFFFFF;
 	font-size: 28px;
-	font-family: 'Asap', Arial, sans-serif;
+	font-family: 'Arvo', Arial, sans-serif;
 	font-style: normal;
 	font-weight: 100;
 	opacity: .5;
