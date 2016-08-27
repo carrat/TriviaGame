@@ -20,7 +20,7 @@
 
 <div id="header">
     <div id="header-inner">
-        <div id="logo"><img src="assets/images/do-ya-know-logo-color.png" width="250px"></div>
+        <div id="logo"><img src="assets/images/do-ya-know-logo-rev.png" width="250px"></div>
         <div id="buttons"></div>
     </div>
 </div>
@@ -30,7 +30,8 @@
         <div id="scoreboard"></div>
         <div id="main-content-inner">
             <div id="intro">
-            <h1 class="welcome">Welcome to Do-ya-know!</h1>
+            <h1 class="welcome">Welcome to <br><img src="assets/images/do-ya-know-logo-rev.png"  class="inline-logo"></h1>
+
             <h2>Let’s find out how much useless information <br>
             you have stuffed in your head.
             </h2>
@@ -138,12 +139,11 @@ $(document).ready(function(){
         questionsAsked = [];
         questionsToAsk = 10;
         qNum;
-    //Clear running timeouts
-        clearTimeout(delayTen);
-        clearTimeout(delayThree);
+ 
+
     // Clear gameboard
         $('#main-content').empty();
-        $('#main-content').css({'background': '#b72a76'}); // return color to base
+        $('#main-content').css({'background': 'linear-gradient(#b72a76, #a1095b)'}); // return color to base
        // $('html').css({'background-color': '#b72a76'}); // return color to base
 
     // First clear out the scoreboard holder just in case
@@ -156,9 +156,9 @@ $(document).ready(function(){
         $('#main-content').append(mainContentInner);
         introDiv = document.createElement("div");
         $(introDiv).attr("id", "intro");
-        welcomeTitle = document.createElement('h1');
-        $(welcomeTitle).attr("class", "welcome")
-        $(welcomeTitle).text("Welcome to Do-ya-know!");
+        welcomeTitle = document.createElement('div');
+
+        $(welcomeTitle).html("<h1 class='welcome'>Welcome to <br><img src='assets/images/do-ya-know-logo-rev.png'  class='inline-logo'></h1>");
         introP = document.createElement("h2");
         $(introP).html("Let’s find out how much useless information <br> you have stuffed in your head.");
         startGameButton = document.createElement("button");
@@ -179,6 +179,7 @@ $(document).ready(function(){
       //Clear running timeouts
         clearTimeout(delayTen);
         clearTimeout(delayThree);
+        clearInterval(counter);
       // Load game results
         loadGameResults();
     }
@@ -356,7 +357,8 @@ $(document).ready(function(){
         $('#main-content').html(mainContentInner);
     // Set the category
         activeCategory = categoriesChosen[categoryCounter]; // assign the active category
-        $('#main-content').css({'background': categories[activeCategory].color}); // change color to match category
+       bgColorSpan = "linear-gradient(" + categories[activeCategory].color1 + ", " +categories[activeCategory].color2 + ")";
+        $('#main-content').css({'background': bgColorSpan});
     // Write Category Title 
         categoryTitleDiv = document.createElement("div");
         $(categoryTitleDiv).attr("class", "category-title-intro");
@@ -385,7 +387,10 @@ $(document).ready(function(){
     // Set the category
         activeCategory = categoriesChosen[categoryCounter]; // assign the active category
         $('#main-content-inner').empty(); // Empty Game Board
-        $('#main-content').css({'background': categories[activeCategory].color}); // change color to match category
+        
+        bgColorSpan = "linear-gradient(" + categories[activeCategory].color1 + ", " +categories[activeCategory].color2 + ")";
+        $('#main-content').css({'background': bgColorSpan});
+
 
     // load random questions into array
     do {   
@@ -498,6 +503,8 @@ $(document).ready(function(){
     }
 // Evaluate the user's answer to see if it is correct
     function answerQuestion() {
+
+        totalQuestions++;
     // Evaluate answer
         if (chosenAnswerGrade == 1) { //are they right?
             gradeText = "Right!";
@@ -573,6 +580,7 @@ $(document).ready(function(){
         pointsEarned = "";
         roundIncorrect++;
         gameIncorrect++;
+        totalQuestions++;
         if (audioDisable !== 1) {
     //Play Audio
             oopsAudio.play();
@@ -616,7 +624,7 @@ $(document).ready(function(){
         categoryTitleDiv = document.createElement("div");
         $(categoryTitleDiv).attr("class", "category-title-intro");
     // Evaluate quality of score
-        totalQuestions = totalQuestions + questionsToAsk;
+        
         var bestScore = questionsToAsk * 100;
         var scoreCheck = roundScore / bestScore;
         var roundRating = (scoreCheck * 100).toFixed(0);
@@ -666,13 +674,15 @@ $(document).ready(function(){
         //Play Audio
             gameOverAudio.play();
         }
-        
+         //Clear running timeouts
+        clearTimeout(delayTen);
+        clearTimeout(delayThree);
         $('#main-content').empty(); // emmpty the clutter off the game board
     // Load the results of the game and return game board to natural state
         mainDiv = document.createElement("div");
         $(mainDiv).attr("id", "main-content-inner");
         $('#main-content').html(mainDiv);
-        $('#main-content').css({'background': '#b72a76'}); // return color to base
+       $('#main-content').css({'background': 'linear-gradient(#b72a76, #a1095b)'}); // return color to base
     // Write Feedback
         categoryTitleDiv = document.createElement("div");
         $(categoryTitleDiv).attr("class", "category-title-intro");
@@ -680,6 +690,8 @@ $(document).ready(function(){
         var bestScore = totalQuestions * 100;
         var scoreCheck = gameScore / bestScore;
         var gameRating = (scoreCheck * 100).toFixed(0);
+        var gamePercentage = ((gameCorrect/(gameCorrect + gameIncorrect)) * 100).toFixed(1);
+        console.log(gamePercentage);
     // Write Game Results  
         categoryResultsDiv = document.createElement("div");
         $(categoryResultsDiv).attr("class", "category-results-div");
@@ -689,7 +701,7 @@ $(document).ready(function(){
             //categoryIconDiv = document.createElement("div");
             //$(categoryIconDiv).attr("class", "category-icon-div");
             //$(categoryIconDiv).html("<img src='assets/images/icons/" + categories[activeCategory].icon +"' height='40px'>");
-            $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>You think you're smarter than me? Maybe you are...</h1>");
+            $(categoryTitleDiv).html("<h1 class='score-percentage'>Correct: " + gamePercentage + "%</h1><h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>You think you're smarter than me? Maybe you are...</h1>");
         }
         else if (scoreCheck < .5 && scoreCheck >=.2){
             $(categoryTitleDiv).html("<h1 class='score'>Rating: " + gameRating + "</h1><h1 class='category-title-intro-text'>Ignorance is bliss. Lucky you.</h1>");
