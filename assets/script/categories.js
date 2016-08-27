@@ -6,6 +6,7 @@ var categories = [
         badge: false, // has the user won the badge in this category?
         color1: "#98288b",
         color2: "#830675",
+        color3: "152,40,139,.99",
         questions: [ 
 			//1 
            {question: 'what movie had the tagline "At the end of the universe lies the beginning of vengeance."?',
@@ -436,6 +437,7 @@ var categories = [
         badge: false,
         color1: "#c8431e",
         color2: "#a82e0c",
+        color3: "200,67,30,.99",
         questions: [ 
 			//1
             {question: 'what kind of surface is used at the tennis Wimbledon Championships?',
@@ -866,6 +868,7 @@ var categories = [
         badge: false,
         color1: "#ce2630",
         color2: "#a50912",
+        color3: "206,38,48,.99",
         questions: [ 
       //1
             {question: 'Agatha Christie also wrote six romance novels. What was the pen name she used for the romance novels?',
@@ -1296,6 +1299,7 @@ var categories = [
         badge: false,
         color1: "#4862d6",
         color2: "#2942ad",
+        color3: "72,98,214,.99",
         questions: [ 
       //1 
            {question: 'who killed Laura Palmer on the popular 1990s TV show Twin Peaks?',
@@ -1726,6 +1730,7 @@ var categories = [
         badge: false,
         color1: "#f58b25",
         color2: "#c86403",
+        color3: "245,139,37,.99",
         questions: [ 
       //1 
            {question: 'which country the province of Hainan is part of?',
@@ -2156,6 +2161,7 @@ var categories = [
         badge: false,
         color1: "#428546",
         color2: "#2e6931",
+        color3: "66,133,70,.99",
         questions: [ 
       //1
             {question: "that the moon's distance from the Earth varies by about 30,500 miles. What is the average distance?",

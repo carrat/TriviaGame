@@ -144,6 +144,8 @@ $(document).ready(function(){
     // Clear gameboard
         $('#main-content').empty();
         $('#main-content').css({'background': 'linear-gradient(#b72a76, #a1095b)'}); // return color to base
+         $('html').css({'background-color': 'rgba(183,42,118,.99)'});
+         $('#header').css({'background': 'linear-gradient(#b72a76, #a1095b)'});
        // $('html').css({'background-color': '#b72a76'}); // return color to base
 
     // First clear out the scoreboard holder just in case
@@ -359,6 +361,11 @@ $(document).ready(function(){
         activeCategory = categoriesChosen[categoryCounter]; // assign the active category
        bgColorSpan = "linear-gradient(" + categories[activeCategory].color1 + ", " +categories[activeCategory].color2 + ")";
         $('#main-content').css({'background': bgColorSpan});
+        $('#header').css({'background': bgColorSpan});
+        $('html').css({'background-image': 'url(assets/images/bg/bg-x.png)'});
+        $('html').css({'background-size': 'cover'});
+        $('html').css({'min-height': '100%'});
+        $('html').css({'background-color': 'rgba(' + categories[activeCategory].color3 +')'});
     // Write Category Title 
         categoryTitleDiv = document.createElement("div");
         $(categoryTitleDiv).attr("class", "category-title-intro");
@@ -390,7 +397,7 @@ $(document).ready(function(){
         
         bgColorSpan = "linear-gradient(" + categories[activeCategory].color1 + ", " +categories[activeCategory].color2 + ")";
         $('#main-content').css({'background': bgColorSpan});
-
+        
 
     // load random questions into array
     do {   
@@ -683,6 +690,8 @@ $(document).ready(function(){
         $(mainDiv).attr("id", "main-content-inner");
         $('#main-content').html(mainDiv);
        $('#main-content').css({'background': 'linear-gradient(#b72a76, #a1095b)'}); // return color to base
+       $('html').css({'background-color': 'rgba(183,42,118,.99)'});
+       $('#header').css({'background': 'linear-gradient(#b72a76, #a1095b)'});
     // Write Feedback
         categoryTitleDiv = document.createElement("div");
         $(categoryTitleDiv).attr("class", "category-title-intro");
