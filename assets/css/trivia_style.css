@@ -345,6 +345,7 @@ h3.category-label {
 	font-family: 'Arvo', Arial, sans-serif;
 	font-style: normal;
 	font-weight: 100;
+	text-align: center;
 }
 
 .question-check-holder {
@@ -390,12 +391,14 @@ h3.category-label {
 
 .question-text {
 	display: inline;
+	font-size: 30px;
+	font-family: 'Bitter', Arial, sans-serif;
 }
 
 .dyk{
 	color: rgba(255,255,255,0.5);
 	display: inline;
-	font-size: 28px;
+	font-size: 30px;
 }
 
 .answer-holder {
@@ -427,7 +430,7 @@ h3.category-label {
 
 .points-holder {
 	padding: 0px 0px 10px 0px;
-	color: #000000;
+	color: #FFFFFF;
 	font-size: 28px;
 	font-family: 'Asap', Arial, sans-serif;
 	font-style: normal;

@@ -94,7 +94,7 @@ var categories = [
 			{question: 'which character Dolly Parton played in the movie "Steel Magnolias"?',
              answers: [ 
                       {
-                        answer: 'Mlynn Eatenton',
+                        answer: "M'lynn Eatenton",
                         correct: false
                       },
                       {
@@ -217,7 +217,7 @@ var categories = [
                       ]
             },
 			//11
-			{question: 'what film was the second top-grossing movie of the eighties, after "E.T"?',
+			{question: 'what film was the second top-grossing movie of the eighties, after "E.T."?',
              answers: [ 
                       {
                         answer: 'Return of the Jedi',
@@ -322,7 +322,7 @@ var categories = [
                       ]
             },
 			//16
-			{question: 'the name of John Connors dog in the film "Terminator II"?',
+			{question: "the name of John Connor's dog in the film 'Terminator II'?",
              answers: [ 
                       {
                         answer: 'Arnold',
@@ -520,7 +520,7 @@ var categories = [
                       ]
             },
 			//5
-			{question: 'which famous athlete was born Ferdinand Lewis Alcindor Jr.',
+			{question: 'which famous athlete was born Ferdinand Lewis Alcindor Jr.?',
              answers: [ 
                       {
                         answer: 'Leon Spinks',
@@ -709,7 +709,7 @@ var categories = [
                       ]
             },
 			//14
-			{question: 'what sport became popular in the US in the 1930s, in part because of a new piece of equipment invented by Seattle retailer Eddie Bauer',
+			{question: 'what sport became popular in the US in the 1930s, in part because of a new piece of equipment invented by Seattle retailer Eddie Bauer?',
              answers: [ 
                       {
                         answer: 'Badminton',
@@ -949,7 +949,7 @@ var categories = [
                       ]
             },
       //5
-      {question: 'this person is assassinated in the play "Murder in the Cathedral',
+      {question: 'this person is assassinated in the play "Murder in the Cathedral"?',
              answers: [ 
                       {
                         answer: 'Arch Bishop John Potter',
@@ -1226,7 +1226,7 @@ var categories = [
              answers: [ 
                       {
                         answer: "Sean O'Casey",
-                        correct: false
+                        correct: true
                       },
                       {
                         answer: 'Federico Garcia Lorca',
@@ -1238,7 +1238,7 @@ var categories = [
                       },
                       {
                         answer: 'Jean-Paul Sartre',
-                        correct: true
+                        correct: false
                       }
                       ]
             },
@@ -1546,23 +1546,23 @@ var categories = [
                       ]
             },
       //13
-      {question: 'in which of these movies Steve Buscemi did not appear?',
+      {question: "who was Scully's supervisor on 'The X-Files'?",
              answers: [ 
                       {
-                        answer: 'Fargo',
+                        answer: 'Spender',
                         correct: false
                       },
                       {
-                        answer: 'Mall Rats',
+                        answer: 'Doggett',
+                        correct: false
+                      },
+                      {
+                        answer: 'Mulder',
+                        correct: false
+                      },
+                      {
+                        answer: 'Skinner',
                         correct: true
-                      },
-                      {
-                        answer: 'ConAir',
-                        correct: false
-                      },
-                      {
-                        answer: 'Vibes',
-                        correct: false
                       }
                       ]
             },
@@ -2341,7 +2341,7 @@ var categories = [
                       ]
             },
       //10
-      {question: "what bird has varieties which include the grashopper, reed and marsh? ",
+      {question: "what bird has varieties which include the grashopper, reed and marsh?",
              answers: [ 
                       {
                         answer: 'Warbler',
