@@ -96,6 +96,8 @@ $(document).ready(function(){
     
 // Start Game
     function startGame() {
+
+
     // Output instructions
         $('#main-content h1').css({'margin-top': '0px'});
         $('#main-content-inner').html("<h1>Choose three categories.</h1><h2>Answer the questions in each category. Score high enough in each category to win a badge.</h2>");
@@ -110,7 +112,10 @@ $(document).ready(function(){
     // Stop Timers
         stopPoints();
         stopTimer();
-
+        //Clear running timeouts
+        clearInterval(counter);
+        clearTimeout(delayTen);
+        clearTimeout(delayThree);
      // Reset variables
         categoriesChosen = []; //array to hold the three categories chosen by the user for gameplay
         categorySelected = 0; // Holds the category selected by user input
