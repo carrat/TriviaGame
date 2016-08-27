@@ -199,7 +199,7 @@ a:hover {
 	margin-bottom: 10px;
 	padding: 20px 0px 10px 0px;
 	text-align: center;
-	border-bottom: 1px solid #FFFFFF;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 #main-content h1.category-title-intro-text {
@@ -635,7 +635,7 @@ button.nav-button:active {
 	margin-bottom: 10px;
 	padding: 20px 0px 10px 0px;
 	text-align: center;
-	border-bottom: 1px solid #FFFFFF;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 	button.nav-button{
