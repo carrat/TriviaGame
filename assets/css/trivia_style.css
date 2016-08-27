@@ -441,6 +441,10 @@ h3.category-label {
 
 }
 
+#audioButtonHolder {
+	display: inline-block;
+}
+
 .badges-earned-holder {
 	text-align: center;
 	margin-bottom: 20px;

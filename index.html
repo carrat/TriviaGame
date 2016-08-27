@@ -83,6 +83,7 @@ $(document).ready(function(){
     var questionsAsked = []; // holds the questions numbers to be asked in active round
     var questionsToAsk = 10; // variable holds how many questions are asked in each round
     var qNum;
+    var audioDisable = 0; //If set to 1, all audio will be disabled
 
 // Array containing category objects which hold questions and answers now stored in assets/script/categories.js
     
@@ -182,6 +183,37 @@ $(document).ready(function(){
         loadGameResults();
     }
 
+// Disable all audio
+    function disableAudioFunction() {
+        if (audioDisable == 1) {
+            audioDisable = 0
+        }
+
+        else {
+            audioDisable = 1;
+        }
+
+        // Change Toggle Audio button based on current state
+
+        $('#audioButtonDiv').empty();
+
+        if (audioDisable == 1) {
+            audioButton = document.createElement('button');
+            $(audioButton).attr('class', 'audio audioOff nav-button');
+            audioButton.innerHTML = "Toggle Audio On";
+            $('#audioButtonHolder').html(audioButton);
+        }
+
+        else if (audioDisable == 0) {
+            audioButton = document.createElement('button');
+            $(audioButton).attr('class', 'audio audioOn nav-button');
+            audioButton.innerHTML = "Toggle Audio Off";
+            $('#audioButtonHolder').html(audioButton);
+        }
+
+        $('.audio').on('click', disableAudioFunction); // Disable all audio from the game
+    }
+
 // Load Categories
     function loadCategories() {
     // Output categories holde on game board
@@ -248,12 +280,23 @@ $(document).ready(function(){
         surrenderButton = document.createElement('button');
         $(surrenderButton).attr("class", "surrender-button nav-button");
         $(surrenderButton).text("Surrender");
+        audioButtonHolder = document.createElement("div");
+        $(audioButtonHolder).attr("id", "audioButtonHolder")
+        audioButton = document.createElement('button');
+        $(audioButton).attr("class", "audio audio-on nav-button");
+        $(audioButton).text("Toggle Audio Off");
+        $(audioButtonHolder).html(audioButton);
+
+       
     // Throw them on the board-title
         $('#buttons').append(startOverButton);
         $('#buttons').append(surrenderButton);
+        $('#buttons').append(audioButtonHolder);
     // Event handlers
         $('.start-over').on('click', resetGame); // Reset Game to start over from the beginning
         $('.surrender-button').on('click', surrenderGame); // Reset Game to start over from the beginning
+        $('.audio').on('click', disableAudioFunction); // Disable all audio from the game
+
     }
     
 // Create and Load scoreboard
@@ -464,7 +507,11 @@ $(document).ready(function(){
             gameScore = gameScore + questionPoints;
             gameCorrect++;
             roundCorrect++;
-            correctAudio.play();
+            if (audioDisable !== 1) {
+            //Play Audio
+                correctAudio.play();
+            }
+            
         }
         else if (chosenAnswerGrade == 0) { // or are they wrong?
             gradeText = "Nope!";
@@ -472,7 +519,11 @@ $(document).ready(function(){
             pointsEarned = "";
             gameIncorrect++;
             roundIncorrect++;
-            incorrectAudio.play();
+            if (audioDisable !== 1) {
+            //Play Audio
+                incorrectAudio.play();
+            }
+          
         }
         else { // shouldn't happen but just in case
 
@@ -522,7 +573,11 @@ $(document).ready(function(){
         pointsEarned = "";
         roundIncorrect++;
         gameIncorrect++;
-        oopsAudio.play();
+        if (audioDisable !== 1) {
+    //Play Audio
+            oopsAudio.play();
+        }
+        
     // create holders for updates
         $('.points-countdown').html(questionPoints);
         answerTextHolder = document.createElement('div');
@@ -606,9 +661,12 @@ $(document).ready(function(){
     }
 // Game is over, show them how they did
     function loadGameResults() {
-    // Play Game Over themre
-        gameOverAudio.play();
-
+    // Play Game Over theme
+        if (audioDisable !== 1) {
+        //Play Audio
+            gameOverAudio.play();
+        }
+        
         $('#main-content').empty(); // emmpty the clutter off the game board
     // Load the results of the game and return game board to natural state
         mainDiv = document.createElement("div");
